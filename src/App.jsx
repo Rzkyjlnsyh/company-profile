@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Mail, MapPin, Star, Award, Users, Building, ChevronDown, Menu, X, Globe, MessageCircle } from 'lucide-react';
+import { ArrowRight, Phone, Mail, MapPin, Star, Award, Users, Building, ChevronDown, Menu, X, Globe, MessageCircle, Play, ChevronLeft, ChevronRight, Image, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import { Toaster } from '@/components/ui/toaster';
@@ -9,6 +9,10 @@ import { Toaster } from '@/components/ui/toaster';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('id');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('photos');
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
@@ -39,18 +43,88 @@ function App() {
         ]
       },
       portfolio: {
-        title: 'Signature of The Month',
-        subtitle: 'Proyek Unggulan yang Menjadi Legacy',
-        featured: {
-          title: 'Bali Luxury Resort',
-          description: 'Resort mewah dengan 150 villa premium yang memadukan arsitektur tradisional Bali dengan teknologi modern. Proyek senilai $50 juta ini menjadi landmark pariwisata internasional.',
-          details: ['150 Villa Premium', '5 Tahun Konstruksi', 'Award Winning Design', 'Sustainable Architecture']
-        },
+        title: 'Portfolio Kami',
+        subtitle: 'Karya Terbaik yang Membangun Warisan',
         projects: [
-          { title: 'Global Manufacturing Plant', location: 'Jakarta', type: 'Industrial' },
-          { title: 'Premium Villa Complex', location: 'Bali', type: 'Residential' },
-          { title: 'International Hotel', location: 'Singapore', type: 'Hospitality' },
-          { title: 'Corporate Headquarters', location: 'Surabaya', type: 'Commercial' }
+          {
+            title: 'Hanggar Bandara Kediri',
+            location: 'Kediri, Jawa Timur , Indonesia',
+            type: 'Komersial',
+            images: [
+              './src/assets/projects/project-1/image-1.jpeg',
+              './src/assets/projects/project-1/image-2.jpeg',
+              './src/assets/projects/project-1/image-3.jpeg'
+            ],
+            videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=eoCLMzYWlg5i-hlE',
+            featured: true,
+            description: 'Resort mewah dengan 150 villa premium yang memadukan arsitektur tradisional Bali dengan teknologi modern. Proyek senilai $50 juta ini menjadi landmark pariwisata internasional.',
+            details: ['150 Villa Premium', '5 Tahun Konstruksi', 'Award Winning Design', 'Sustainable Architecture']
+          },
+          {
+            title: 'Rumah dr. Hermawan',
+            location: 'Pare Kediri , Jawa Timur , Indonesia',
+            type: 'Bangun Rumah',
+            images: [
+              './src/assets/projects/project-2/image-1.jpeg',
+              './src/assets/projects/project-2/image-2.jpeg'
+            ],
+            videoUrl: 'https://www.youtube.com/embed/eJclzksshqo?si=jEwBXzD31Su2Wc-n',
+            featured: false,
+            description: 'Rumah tinggal modern dengan desain minimalis dan konsep ruang terbuka yang nyaman untuk keluarga.',
+            details: ['Luas 350m²', '3 Kamar Tidur', 'Desain Modern', 'Material Premium']
+          },
+          {
+            title: 'Rumah Tinggal Gus Iqbal Lirboyo',
+            location: 'Kota Kediri, Jawa Timur , Indonesia',
+            type: 'Renovasi',
+            images: [
+              './src/assets/projects/project-3/image-1.jpeg',
+              './src/assets/projects/project-3/image-2.jpeg'
+            ],
+            videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
+            featured: false,
+            description: 'Transformasi total kantor pusat perusahaan dengan konsep workspace modern dan ergonomis.',
+            details: ['Luas 2000m²', '3 Lantai', 'Smart Office', 'Green Building']
+          },
+          {
+            title: 'Rumah Tinggal Ning Millah Lirboyo',
+            location: 'Kota Kediri , Jawa timur , Indonesia',
+            type: 'Interior',
+            images: [
+              './src/assets/projects/project-4/image-1.jpeg',
+              './src/assets/projects/project-4/image-2.jpeg'
+            ],
+            videoUrl: 'https://player.vimeo.com/video/1118085271?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', // besok
+            featured: false,
+            description: 'Desain interior apartment premium dengan material imported dan furniture custom design.',
+            details: ['Luas 120m²', '2 Bedroom', 'Smart Home', 'Luxury Finish']
+          },
+          {
+            title: 'Bu Lurah Mojoroto',
+            location: 'Kediri , Jawa Timur , Indonesia',
+            type: 'Exterior',
+            images: [
+              './src/assets/projects/project-5/image-1.jpeg',
+              './src/assets/projects/project-5/image-2.jpeg'
+            ],
+            videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE', // besok
+            featured: false,
+            description: 'Renovasi fasad gedung komersial dengan material glass curtain wall dan aluminium composite panel.',
+            details: ['Tinggi 15m', 'Material ACP', 'Curtain Wall', 'LED Lighting']
+          },
+          {
+            title: 'PKP-RI KEDIRI',
+            location: 'Kediri , Jawa Timur Indonesia',
+            type: 'Komersial',
+            images: [
+              './src/assets/projects/project-6/image-1.jpeg',
+              './src/assets/projects/project-6/image-2.jpeg'
+            ],
+            videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE', // besok
+            featured: false,
+            description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
+            details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+          }
         ]
       },
       pillars: {
@@ -58,35 +132,35 @@ function App() {
         subtitle: 'Yang Membedakan Kami dari yang Lain',
         items: [
           {
-            title: 'Proven Legacy',
+            title: 'Warisan Terbukti',
             subtitle: '30+ Tahun Kepercayaan',
             description: 'Tiga dekade pengalaman membangun proyek-proyek landmark yang menjadi ikon.'
           },
           {
-            title: 'Precision & Artistry',
+            title: 'Presisi & Seni',
             subtitle: 'Engineering Meets Design',
             description: 'Perpaduan sempurna antara teknologi konstruksi terdepan dan seni desain yang memukau.'
           },
           {
-            title: 'Exclusivity in Execution',
+            title: 'Eksklusivitas dalam Eksekusi',
             subtitle: 'Setiap Proyek adalah Signature',
             description: 'Pendekatan eksklusif untuk setiap klien dengan solusi yang disesuaikan secara personal.'
           },
           {
-            title: 'World-Class Standards',
+            title: 'Standar Kelas Dunia',
             subtitle: 'Standar Internasional',
             description: 'Menerapkan standar kualitas internasional dalam setiap aspek konstruksi dan desain.'
           },
           {
-            title: 'Trust as Currency',
+            title: 'Kepercayaan sebagai Mata Uang',
             subtitle: 'Kepercayaan sebagai Mata Uang',
             description: 'Membangun hubungan jangka panjang berdasarkan kepercayaan dan hasil yang konsisten.'
           }
         ]
       },
       testimonials: {
-        title: 'Client Stories',
-        subtitle: 'Kepercayaan yang Membangun Legacy',
+        title: 'Cerita Klien',
+        subtitle: 'Kepercayaan yang Membangun Warisan',
         items: [
           {
             name: 'Ir. Bambang Sutrisno',
@@ -109,11 +183,12 @@ function App() {
         ]
       },
       contact: {
-        title: 'Let\'s Build Your Legacy',
+        title: 'Mari Bangun Warisan Anda',
         subtitle: 'Mulai Perjalanan Menuju Keunggulan',
         form: {
           name: 'Nama Lengkap',
-          email: 'Email',
+          location: 'Lokasi Proyek',
+          project: 'Jenis Proyek',
           message: 'Pesan',
           submit: 'Kirim Konsultasi'
         },
@@ -149,21 +224,93 @@ function App() {
           { title: 'Artistry', desc: 'Stunning blend of engineering and design' }
         ]
       },
-      portfolio: {
-        title: 'Signature of The Month',
-        subtitle: 'Featured Projects that Become Legacy',
-        featured: {
-          title: 'Bali Luxury Resort',
-          description: 'Luxury resort with 150 premium villas combining traditional Balinese architecture with modern technology. This $50 million project has become an international tourism landmark.',
-          details: ['150 Premium Villas', '5 Years Construction', 'Award Winning Design', 'Sustainable Architecture']
-        },
-        projects: [
-          { title: 'Global Manufacturing Plant', location: 'Jakarta', type: 'Industrial' },
-          { title: 'Premium Villa Complex', location: 'Bali', type: 'Residential' },
-          { title: 'International Hotel', location: 'Singapore', type: 'Hospitality' },
-          { title: 'Corporate Headquarters', location: 'Surabaya', type: 'Commercial' }
-        ]
-      },
+// content.en.portfolio
+portfolio: {
+  title: 'Our Portfolio',
+  subtitle: 'Outstanding Works That Build Legacy',
+  projects: [
+    {
+      title: 'Bali Luxury Resort', // besok
+      location: 'Bali, Indonesia',
+      type: 'Commercial',
+      images: [
+        './src/assets/projects/project-1/image-1.jpeg',
+        './src/assets/projects/project-1/image-2.jpeg',
+        './src/assets/projects/project-1/image-3.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=eoCLMzYWlg5i-hlE', // besok
+      featured: true,
+      description: 'A luxurious resort with 150 premium villas blending traditional Balinese architecture with modern technology. This $50 million project is a landmark in international tourism.',
+      details: ['150 Premium Villas', '5 Years of Construction', 'Award-Winning Design', 'Sustainable Architecture']
+    },
+    {
+      title: 'Modern Minimalist House',
+      location: 'South Jakarta',
+      type: 'Residential',
+      images: [
+        './src/assets/projects/project-2/image-1.jpeg',
+        './src/assets/projects/project-2/image-2.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',// besok
+      featured: false,
+      description: 'A modern residential house with minimalist design and open space concept, perfect for a family.',
+      details: ['Area 350m²', '3 Bedrooms', 'Modern Design', 'Premium Materials']
+    },
+    {
+      title: 'Headquarters Office Renovation',
+      location: 'Sudirman, Jakarta',
+      type: 'Renovation',
+      images: [
+        './src/assets/projects/project-3/image-1.jpeg',
+        './src/assets/projects/project-3/image-2.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      featured: false,
+      description: 'Total transformation of a corporate headquarters with a modern, ergonomic workspace design.',
+      details: ['Area 2000m²', '3 Floors', 'Smart Office', 'Green Building']
+    },
+    {
+      title: 'Premium Apartment Interior',
+      location: 'Kebayoran Baru',
+      type: 'Interior',
+      images: [
+        './src/assets/projects/project-4/image-1.jpeg',
+        './src/assets/projects/project-4/image-2.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      featured: false,
+      description: 'Interior design of a premium apartment with imported materials and custom-designed furniture.',
+      details: ['Area 120m²', '2 Bedrooms', 'Smart Home', 'Luxury Finish']
+    },
+    {
+      title: 'Commercial Building Facade',
+      location: 'Surabaya',
+      type: 'Exterior',
+      images: [
+        './src/assets/projects/project-5/image-1.jpeg',
+        './src/assets/projects/project-5/image-2.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      featured: false,
+      description: 'Facade renovation of a commercial building using glass curtain walls and aluminum composite panels.',
+      details: ['Height 15m', 'ACP Material', 'Curtain Wall', 'LED Lighting']
+    },
+    {
+      title: 'Manufacturing Factory',
+      location: 'Cikarang, Bekasi',
+      type: 'Commercial',
+      images: [
+        './src/assets/projects/project-6/image-1.jpeg',
+        './src/assets/projects/project-6/image-2.jpeg'
+      ],
+      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      featured: false,
+      description: 'Construction of a manufacturing factory with international standards and advanced technology.',
+      details: ['Area 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+    }
+  ]
+},
+
       pillars: {
         title: 'Our Pillars of Excellence',
         subtitle: 'What Sets Us Apart',
@@ -224,7 +371,8 @@ function App() {
         subtitle: 'Start Your Journey to Excellence',
         form: {
           name: 'Full Name',
-          email: 'Email',
+          location: 'Project Location',
+          project: 'Project Type',
           message: 'Message',
           submit: 'Send Consultation'
         },
@@ -243,14 +391,15 @@ function App() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const name = formData.get('name');
-    const email = formData.get('email');
+    const location = formData.get('location');
+    const project = formData.get('project');
     const message = formData.get('message');
     
     // Format pesan untuk WhatsApp
-    const whatsappMessage = `Halo, saya ${name}. Email: ${email}. Pesan: ${message}`;
+    const whatsappMessage = `Halo, saya ${name}. Saya ingin berkonsultasi mengenai proyek ${project} yang berlokasi ${location}. Pesan: ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappUrl = `https://wa.me/6281330229771?text=${encodedMessage}`;
-    
+
     // Arahkan ke WhatsApp
     window.open(whatsappUrl, '_blank');
     
@@ -263,6 +412,34 @@ function App() {
   const handleWhatsApp = () => {
     const whatsappUrl = `https://wa.me/6281330229771`;
     window.open(whatsappUrl, '_blank');
+  };
+  const openProjectModal = (project, index = 0) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+    setActiveTab('photos');
+  };
+  
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+    setCurrentImageIndex(0);
+  };
+  
+  const nextImage = () => {
+    if (selectedProject && selectedProject.images) {
+      setCurrentImageIndex((prev) => 
+        (prev + 1) % selectedProject.images.length
+      );
+    }
+  };
+  
+  const prevImage = () => {
+    if (selectedProject && selectedProject.images) {
+      setCurrentImageIndex((prev) => 
+        (prev - 1 + selectedProject.images.length) % selectedProject.images.length
+      );
+    }
   };
 
   const scrollToSection = (sectionId) => {
@@ -486,78 +663,73 @@ function App() {
           </div>
         </section>
 
-        {/* Portfolio Section */}
-        <section id="portfolio" className="py-20 px-4 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                {t.portfolio.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                {t.portfolio.subtitle}
-              </p>
-            </motion.div>
+{/* Portfolio Section */}
+<section id="portfolio" className="py-20 px-4 bg-slate-900/50">
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gradient">
+        {t.portfolio.title}
+      </h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        {t.portfolio.subtitle}
+      </p>
+    </motion.div>
 
-            {/* Featured Project */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="glass-effect rounded-3xl overflow-hidden mb-16 hover-lift"
-            >
-              <div className="grid lg:grid-cols-2 gap-0">
-                <div className="relative h-64 lg:h-auto">
-                  <img  
-                    className="w-full h-full object-cover" 
-                    alt="Bali luxury resort with traditional architecture and modern amenities"
-                   src="https://images.unsplash.com/photo-1671372777043-5c46a3c047db" />
+    {/* Projects Grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {t.portfolio.projects.map((project, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className={`glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group ${
+            project.featured ? 'lg:col-span-2 lg:row-span-2' : ''
+          }`}
+          onClick={() => openProjectModal(project)}
+        >
+          <div className="relative h-64 overflow-hidden">
+            <img
+              src={project.images[0]}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="flex space-x-4">
+                <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                  <Image className="w-5 h-5 text-white" />
+                  <span className="text-white text-sm ml-1">{project.images.length}</span>
                 </div>
-                <div className="p-8 lg:p-12">
-                  <h3 className="font-playfair text-3xl font-bold mb-4 text-gradient">
-                    {t.portfolio.featured.title}
-                  </h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {t.portfolio.featured.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {t.portfolio.featured.details.map((detail, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <Star className="w-5 h-5 text-yellow-400" />
-                        <span className="text-sm text-gray-300">{detail}</span>
-                      </div>
-                    ))}
+                {project.videoUrl && (
+                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Video className="w-5 h-5 text-white" />
                   </div>
-                </div>
+                )}
               </div>
-            </motion.div>
-
-            {/* Other Projects */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {t.portfolio.projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-effect p-6 rounded-2xl hover-lift"
-                >
-                  <Building className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h4 className="text-lg font-bold mb-2 text-white">{project.title}</h4>
-                  <p className="text-sm text-gray-400 mb-1">{project.location}</p>
-                  <p className="text-sm text-yellow-400">{project.type}</p>
-                </motion.div>
-              ))}
             </div>
           </div>
-        </section>
+          <div className="p-6">
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="text-lg font-bold text-white">{project.title}</h3>
+              <span className="text-xs text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
+                {project.type}
+              </span>
+            </div>
+            <p className="text-sm text-gray-400 mb-1">{project.location}</p>
+            <p className="text-sm text-gray-300 line-clamp-2">{project.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Pillars Section */}
         <section id="pillars" className="py-20 px-4">
@@ -685,20 +857,36 @@ function App() {
                     <input
                       type="text"
                       name="name"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.email}
+                      {t.contact.form.location}
                     </label>
                     <input
-                      type="email"
-                      name="email"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
+                      type="text"
+                      name="location"
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      {t.contact.form.project}
+                    </label>
+                    <select
+                      name="project"
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
+                      required
+                    >
+                      <option value="Residential">Bangun Rumah</option>
+                      <option value="Commercial">Renovasi</option>
+                      <option value="Industrial">Interior</option>
+                      <option value="Hospitality">Exterior</option>
+                      <option value="Hospitality">Lainnya</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -707,13 +895,13 @@ function App() {
                     <textarea
                       rows={4}
                       name="message"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     ></textarea>
                   </div>
                   <Button
                     type="submit"
-                    className="w-full gold-gradient text-slate-900 hover:opacity-90 py-3 text-lg font-semibold rounded-lg hover-lift"
+                    className="w-full gold-gradient text-slate-900 hover:opacity-90 py-3 text-lg font-semibold rounded-2xl hover-lift"
                   >
                     {t.contact.form.submit}
                   </Button>
@@ -726,7 +914,7 @@ function App() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-8"
+                className=" grid glass-effect p-8 rounded-2xl content-between"
               >
                 <div className="glass-effect p-6 rounded-2xl hover-lift">
                   <div className="flex items-center space-x-4">
@@ -760,7 +948,7 @@ function App() {
 
                 <Button
                   onClick={handleWhatsApp}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-lg font-semibold rounded-lg hover-lift"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-lg font-semibold rounded-2xl hover-lift"
                 >
                   <MessageCircle className="mr-2 w-5 h-5" />
                   WhatsApp Consultation
@@ -788,6 +976,151 @@ function App() {
 
         <Toaster />
       </div>
+      {/* Project Modal */}
+{isModalOpen && selectedProject && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4"
+    onClick={closeProjectModal}
+  >
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      className="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Modal Header */}
+      <div className="flex justify-between items-center p-6 border-b border-gray-700">
+        <div>
+          <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
+          <p className="text-gray-400">{selectedProject.location}</p>
+        </div>
+        <button
+          onClick={closeProjectModal}
+          className="text-gray-400 hover:text-white transition-colors"
+        >
+          <X className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Modal Content */}
+      <div className="p-6">
+        {/* Tabs */}
+        <div className="flex space-x-4 mb-6">
+          <button
+            onClick={() => setActiveTab('photos')}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              activeTab === 'photos'
+                ? 'bg-yellow-400 text-slate-900'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+          >
+            <Image className="w-4 h-4 inline mr-2" />
+            Photos ({selectedProject.images.length})
+          </button>
+          {selectedProject.videoUrl && (
+            <button
+              onClick={() => setActiveTab('video')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeTab === 'video'
+                  ? 'bg-yellow-400 text-slate-900'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              <Video className="w-4 h-4 inline mr-2" />
+              Video
+            </button>
+          )}
+        </div>
+
+        {/* Content */}
+        {activeTab === 'photos' && (
+          <div className="relative">
+            <div className="relative h-96 overflow-hidden rounded-lg">
+              <img
+                src={selectedProject.images[currentImageIndex]}
+                alt={selectedProject.title}
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Navigation Arrows */}
+              {selectedProject.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Thumbnails */}
+            {selectedProject.images.length > 1 && (
+              <div className="grid grid-cols-4 gap-2 mt-4">
+                {selectedProject.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative h-20 overflow-hidden rounded-lg transition-all ${
+                      currentImageIndex === index
+                        ? 'ring-2 ring-yellow-400 scale-105'
+                        : 'opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'video' && selectedProject.videoUrl && (
+          <div className="relative h-96">
+            <iframe
+              src={selectedProject.videoUrl}
+              className="w-full h-full rounded-lg"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+
+        {/* Project Details */}
+        <div className="mt-6">
+          <h4 className="text-lg font-semibold text-white mb-3">Deskripsi Proyek</h4>
+          <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+          
+          <h4 className="text-lg font-semibold text-white mb-3">Detail</h4>
+          <div className="grid grid-cols-2 gap-3">
+            {selectedProject.details.map((detail, index) => (
+              <div key={index} className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                <span className="text-sm text-gray-300">{detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
     </>
   );
 }
