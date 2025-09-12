@@ -114,7 +114,6 @@ function App() {
         form: {
           name: 'Nama Lengkap',
           email: 'Email',
-          project: 'Jenis Proyek',
           message: 'Pesan',
           submit: 'Kirim Konsultasi'
         },
@@ -226,7 +225,6 @@ function App() {
         form: {
           name: 'Full Name',
           email: 'Email',
-          project: 'Project Type',
           message: 'Message',
           submit: 'Send Consultation'
         },
@@ -243,17 +241,28 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    // Format pesan untuk WhatsApp
+    const whatsappMessage = `Halo, saya ${name}. Email: ${email}. Pesan: ${message}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/6281330229771?text=${encodedMessage}`;
+    
+    // Arahkan ke WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
     toast({
-      title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀",
+      title: "Berhasil! Anda akan diarahkan ke WhatsApp.",
       duration: 5000,
     });
   };
 
   const handleWhatsApp = () => {
-    toast({
-      title: "🚧 Fitur ini belum diimplementasikan—tapi jangan khawatir! Anda bisa memintanya di prompt berikutnya! 🚀",
-      duration: 5000,
-    });
+    const whatsappUrl = `https://wa.me/6281330229771`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const scrollToSection = (sectionId) => {
@@ -675,6 +684,7 @@ function App() {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     />
@@ -685,20 +695,10 @@ function App() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.project}
-                    </label>
-                    <select className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white">
-                      <option>Residential</option>
-                      <option>Commercial</option>
-                      <option>Industrial</option>
-                      <option>Hospitality</option>
-                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -706,6 +706,7 @@ function App() {
                     </label>
                     <textarea
                       rows={4}
+                      name="message"
                       className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
                       required
                     ></textarea>
