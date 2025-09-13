@@ -454,7 +454,7 @@ portfolio: {
   return (
     <>
       <Helmet>
-        <title>PT.ALFA TATA GRIYA - The Signature of Excellence</title>
+        <title>PT.Alfa Tata Griya - The Signature of Excellence</title>
         <meta name="description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
         <meta property="og:title" content="PT.Alfa Tata Griya - The Signature of Excellence" />
         <meta property="og:description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
@@ -479,7 +479,7 @@ portfolio: {
   <img
     src={logo}
     alt="PT.Alfa Tata Griya Logo"
-    className="transition-opacity duration-300"
+    className="transition-opacity duration-300 w-40 h-32"
   />
 </motion.div>
 
