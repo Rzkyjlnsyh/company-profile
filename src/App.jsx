@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Mail, MapPin, Star, Award, Users, Building, ChevronDown, Menu, X, Globe, MessageCircle, Play, ChevronLeft, ChevronRight, Image, Video } from 'lucide-react';
+import { ArrowRight, Phone, Mail, MapPin, Star, Award, ChevronDown, Menu, X, Globe, MessageCircle, Play, ChevronLeft, ChevronRight, Image, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import { Toaster } from '@/components/ui/toaster';
+import logo from './assets/logo.webp'
 import Project1Image1 from './assets/projects/project-1/image-1.jpeg';
 import Project1Image2 from './assets/projects/project-1/image-2.jpeg';
 import Project1Image3 from './assets/projects/project-1/image-3.jpeg';
@@ -40,10 +41,10 @@ function App() {
         contact: 'Kontak'
       },
       hero: {
-        title: 'The Signature of Excellence',
-        subtitle: 'Every Build, A Legacy.',
-        description: 'Lebih dari 30 tahun pengalaman membangun proyek-proyek ikonik berskala nasional dan internasional. Kami tidak sekadar membangun, kami menandatangani keunggulan.',
-        cta1: 'Jelajahi Legacy Kami',
+        title: 'PT.ALFA TATA GRIYA',
+        subtitle: 'The Signature of Excellence',
+        description: 'Lebih dari 20 tahun pengalaman membangun proyek-proyek ikonik berskala nasional dan internasional. Kami tidak sekadar membangun, kami menandatangani keunggulan.',
+        cta1: 'Jelajahi Warisan Kami',
         cta2: 'Konsultasi Dengan Kami'
       },
       about: {
@@ -172,7 +173,7 @@ function App() {
           {
             name: 'Ir. Bambang Sutrisno',
             position: 'CEO, PT Global Manufacturing',
-            quote: 'The Signature of Excellence tidak hanya membangun pabrik kami, mereka membangun masa depan bisnis kami. Kualitas dan presisi yang luar biasa.',
+            quote: 'PT.ALFA TATA GRIYA tidak hanya membangun pabrik kami, mereka membangun masa depan bisnis kami. Kualitas dan presisi yang luar biasa.',
             project: 'Global Manufacturing Plant'
           },
           {
@@ -200,9 +201,9 @@ function App() {
           submit: 'Kirim Konsultasi'
         },
         info: {
-          phone: '+62 21 1234 5678',
+          phone: '+62 813 6664 6664',
           email: 'info@signatureexcellence.com',
-          address: 'Jakarta Design Center, Indonesia'
+          address: 'Jl. Gajah Mada No.99, Kwadungan, Kec. Ngasem, Kabupaten Kediri, Jawa Timur 64182'
         }
       }
     },
@@ -215,9 +216,9 @@ function App() {
         contact: 'Contact'
       },
       hero: {
-        title: 'The Signature of Excellence',
-        subtitle: 'Every Build, A Legacy.',
-        description: 'Over 30 years of experience building iconic projects on national and international scales. We don\'t just build, we sign excellence.',
+        title: 'PT.ALFA TATA GRIYA',
+        subtitle: 'The Signature of Excellence',
+        description: 'Over 20 years of experience building iconic projects on national and international scales. We don\'t just build, we sign excellence.',
         cta1: 'Explore Our Legacy',
         cta2: 'Consult With Us'
       },
@@ -317,7 +318,7 @@ portfolio: {
         items: [
           {
             title: 'Proven Legacy',
-            subtitle: '30+ Years of Trust',
+            subtitle: '20+ Years of Trust',
             description: 'Three decades of experience building landmark projects that become icons.'
           },
           {
@@ -349,7 +350,7 @@ portfolio: {
           {
             name: 'Ir. Bambang Sutrisno',
             position: 'CEO, PT Global Manufacturing',
-            quote: 'The Signature of Excellence didn\'t just build our factory, they built our business future. Extraordinary quality and precision.',
+            quote: 'PT.ALFA TATA GRIYA didn\'t just build our factory, they built our business future. Extraordinary quality and precision.',
             project: 'Global Manufacturing Plant'
           },
           {
@@ -379,7 +380,7 @@ portfolio: {
         info: {
           phone: '+62 21 1234 5678',
           email: 'info@signatureexcellence.com',
-          address: 'Jakarta Design Center, Indonesia'
+          address: 'Gajah Mada Street Number 99, Kwadungan, Ngasem District, Kediri Regency, East Java (64182)'
         }
       }
     }
@@ -453,9 +454,9 @@ portfolio: {
   return (
     <>
       <Helmet>
-        <title>The Signature of Excellence - Premium Construction & Interior</title>
+        <title>PT.ALFA TATA GRIYA - The Signature of Excellence</title>
         <meta name="description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
-        <meta property="og:title" content="The Signature of Excellence - Premium Construction & Interior" />
+        <meta property="og:title" content="PT.Alfa Tata Griya - The Signature of Excellence" />
         <meta property="og:description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
       </Helmet>
 
@@ -470,13 +471,17 @@ portfolio: {
         <nav className="fixed top-0 w-full z-50 glass-effect">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="font-playfair text-xl font-bold text-gradient"
-              >
-                The Signature of Excellence
-              </motion.div>
+            <motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  className="flex items-center"
+>
+  <img
+    src={logo}
+    alt="PT.Alfa Tata Griya Logo"
+    className="transition-opacity duration-300"
+  />
+</motion.div>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
@@ -681,52 +686,115 @@ portfolio: {
       </p>
     </motion.div>
 
-    {/* Projects Grid */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {t.portfolio.projects.map((project, index) => (
+    {/* Featured Project (Full Width) */}
+    {t.portfolio.projects
+      .filter(project => project.featured)
+      .map((project, index) => (
         <motion.div
-          key={index}
+          key={`featured-${index}`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className={`glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group ${
-            project.featured ? 'lg:col-span-2 lg:row-span-2' : ''
-          }`}
+          className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group mb-12"
           onClick={() => openProjectModal(project)}
         >
-          <div className="relative h-64 overflow-hidden">
-            <img
-              src={project.images[0]}
-              alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div className="flex space-x-4">
-                <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
-                  <Image className="w-5 h-5 text-white" />
-                  <span className="text-white text-sm ml-1">{project.images.length}</span>
-                </div>
-                {project.videoUrl && (
-                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <Video className="w-5 h-5 text-white" />
+          <div className="grid lg:grid-cols-2 gap-0">
+            <div className="relative h-64 lg:h-96 overflow-hidden">
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="flex space-x-4">
+                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
+                    <Image className="w-6 h-6 text-white" />
+                    <span className="text-white text-sm ml-2">{project.images.length}</span>
                   </div>
-                )}
+                  {project.videoUrl && (
+                    <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
+                      <Video className="w-6 h-6 text-white" />
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="absolute top-4 left-4">
+                <span className="text-xs text-yellow-400 bg-yellow-400/20 px-3 py-1 rounded-full">
+                  Featured Project
+                </span>
               </div>
             </div>
-          </div>
-          <div className="p-6">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-bold text-white">{project.title}</h3>
-              <span className="text-xs text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
+            <div className="p-8 flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
+              <p className="text-sm text-gray-400 mb-2">{project.location}</p>
+              <span className="text-xs text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded-full mb-4 self-start">
                 {project.type}
               </span>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {project.details.slice(0, 4).map((detail, i) => (
+                  <div key={i} className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
+                    <span className="text-xs text-gray-400">{detail}</span>
+                  </div>
+                ))}
+              </div>
+              <button className="text-yellow-400 hover:text-yellow-300 text-sm font-medium flex items-center self-start">
+                View Project Details
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
             </div>
-            <p className="text-sm text-gray-400 mb-1">{project.location}</p>
-            <p className="text-sm text-gray-300 line-clamp-2">{project.description}</p>
           </div>
         </motion.div>
       ))}
+
+    {/* Other Projects Grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {t.portfolio.projects
+        .filter(project => !project.featured)
+        .map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group"
+            onClick={() => openProjectModal(project)}
+          >
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="flex space-x-4">
+                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Image className="w-5 h-5 text-white" />
+                    <span className="text-white text-sm ml-1">{project.images.length}</span>
+                  </div>
+                  {project.videoUrl && (
+                    <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                      <Video className="w-5 h-5 text-white" />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                <span className="text-xs text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
+                  {project.type}
+                </span>
+              </div>
+              <p className="text-sm text-gray-400 mb-1">{project.location}</p>
+              <p className="text-sm text-gray-300 line-clamp-2">{project.description}</p>
+            </div>
+          </motion.div>
+        ))}
     </div>
   </div>
 </section>
@@ -962,21 +1030,21 @@ portfolio: {
         <footer className="bg-slate-900 py-12 px-4">
           <div className="max-w-6xl mx-auto text-center">
             <div className="font-playfair text-2xl font-bold text-gradient mb-4">
-              The Signature of Excellence
+            PT.ALFA TATA GRIYA
             </div>
             <p className="text-gray-400 mb-6">
               Building Legacy, One Project at a Time
             </p>
             <div className="section-divider"></div>
             <p className="text-gray-500 text-sm">
-              © 2024 The Signature of Excellence. All rights reserved.
+              © 2025 PT.ALFA TATA GRIYA. All rights reserved.
             </p>
           </div>
         </footer>
 
         <Toaster />
       </div>
-      {/* Project Modal */}
+{/* Project Modal */}
 {isModalOpen && selectedProject && (
   <motion.div
     initial={{ opacity: 0 }}
@@ -989,11 +1057,11 @@ portfolio: {
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
-      className="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+      className="bg-slate-900 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col"
       onClick={(e) => e.stopPropagation()}
     >
       {/* Modal Header */}
-      <div className="flex justify-between items-center p-6 border-b border-gray-700">
+      <div className="flex justify-between items-center p-6 border-b border-gray-700 flex-shrink-0">
         <div>
           <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
           <p className="text-gray-400">{selectedProject.location}</p>
@@ -1006,117 +1074,138 @@ portfolio: {
         </button>
       </div>
 
-      {/* Modal Content */}
-      <div className="p-6">
-        {/* Tabs */}
-        <div className="flex space-x-4 mb-6">
-          <button
-            onClick={() => setActiveTab('photos')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeTab === 'photos'
-                ? 'bg-yellow-400 text-slate-900'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-            }`}
-          >
-            <Image className="w-4 h-4 inline mr-2" />
-            Photos ({selectedProject.images.length})
-          </button>
-          {selectedProject.videoUrl && (
+      {/* Modal Content - Scrollable Area */}
+      <div className="overflow-y-auto flex-1">
+        <div className="p-6">
+          {/* Tabs */}
+          <div className="flex space-x-4 mb-6">
             <button
-              onClick={() => setActiveTab('video')}
+              onClick={() => setActiveTab('photos')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeTab === 'video'
+                activeTab === 'photos'
                   ? 'bg-yellow-400 text-slate-900'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              <Video className="w-4 h-4 inline mr-2" />
-              Video
+              <Image className="w-4 h-4 inline mr-2" />
+              Photos ({selectedProject.images.length})
             </button>
-          )}
-        </div>
-
-        {/* Content */}
-        {activeTab === 'photos' && (
-          <div className="relative">
-            <div className="relative h-96 overflow-hidden rounded-lg">
-              <img
-                src={selectedProject.images[currentImageIndex]}
-                alt={selectedProject.title}
-                className="w-full h-full object-cover"
-              />
-              
-              {/* Navigation Arrows */}
-              {selectedProject.images.length > 1 && (
-                <>
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </>
-              )}
-            </div>
-
-            {/* Thumbnails */}
-            {selectedProject.images.length > 1 && (
-              <div className="grid grid-cols-4 gap-2 mt-4">
-                {selectedProject.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative h-20 overflow-hidden rounded-lg transition-all ${
-                      currentImageIndex === index
-                        ? 'ring-2 ring-yellow-400 scale-105'
-                        : 'opacity-70 hover:opacity-100'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
+            {selectedProject.videoUrl && (
+              <button
+                onClick={() => setActiveTab('video')}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeTab === 'video'
+                    ? 'bg-yellow-400 text-slate-900'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                }`}
+              >
+                <Video className="w-4 h-4 inline mr-2" />
+                Video
+              </button>
             )}
           </div>
-        )}
 
-        {activeTab === 'video' && selectedProject.videoUrl && (
-          <div className="relative h-96">
-            <iframe
-              src={selectedProject.videoUrl}
-              className="w-full h-full rounded-lg"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        )}
-
-        {/* Project Details */}
-        <div className="mt-6">
-          <h4 className="text-lg font-semibold text-white mb-3">Deskripsi Proyek</h4>
-          <p className="text-gray-300 mb-4">{selectedProject.description}</p>
-          
-          <h4 className="text-lg font-semibold text-white mb-3">Detail</h4>
-          <div className="grid grid-cols-2 gap-3">
-            {selectedProject.details.map((detail, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span className="text-sm text-gray-300">{detail}</span>
+          {/* Content */}
+          {activeTab === 'photos' && (
+            <div className="relative mb-6">
+              <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg">
+                <img
+                  src={selectedProject.images[currentImageIndex]}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+                
+                {/* Navigation Arrows */}
+                {selectedProject.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+                  </>
+                )}
               </div>
-            ))}
+
+              {/* Thumbnails */}
+              {selectedProject.images.length > 1 && (
+                <div className="grid grid-cols-4 gap-2 mt-4">
+                  {selectedProject.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`relative h-16 sm:h-20 overflow-hidden rounded-lg transition-all ${
+                        currentImageIndex === index
+                          ? 'ring-2 ring-yellow-400 scale-105'
+                          : 'opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'video' && selectedProject.videoUrl && (
+            <div className="relative h-64 sm:h-80 md:h-96 mb-6">
+              <iframe
+                src={selectedProject.videoUrl}
+                className="w-full h-full rounded-lg"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          )}
+
+          {/* Project Details */}
+          <div className="mt-6">
+            <h4 className="text-lg font-semibold text-white mb-3">Deskripsi Proyek</h4>
+            <p className="text-gray-300 mb-6 leading-relaxed">{selectedProject.description}</p>
+            
+            <h4 className="text-lg font-semibold text-white mb-3">Detail Proyek</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {selectedProject.details.map((detail, index) => (
+                <div key={index} className="flex items-start space-x-2">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-sm text-gray-300">{detail}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Project Type Badge */}
+            <div className="flex items-center space-x-2 mb-6">
+              <span className="text-sm text-gray-400">Tipe Proyek:</span>
+              <span className="text-sm text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded-full">
+                {selectedProject.type}
+              </span>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Modal Footer */}
+      <div className="p-6 border-t border-gray-700 flex-shrink-0">
+        <Button
+          onClick={closeProjectModal}
+          className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-semibold"
+        >
+          Tutup
+        </Button>
       </div>
     </motion.div>
   </motion.div>
