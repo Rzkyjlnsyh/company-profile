@@ -5,6 +5,20 @@ import { ArrowRight, Phone, Mail, MapPin, Star, Award, Users, Building, ChevronD
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import { Toaster } from '@/components/ui/toaster';
+import Project1Image1 from './assets/projects/project-1/image-1.jpeg';
+import Project1Image2 from './assets/projects/project-1/image-2.jpeg';
+import Project1Image3 from './assets/projects/project-1/image-3.jpeg';
+import Project2Image1 from './assets/projects/project-2/image-1.jpeg';
+import Project2Image2 from './assets/projects/project-2/image-2.jpeg';
+import Project3Image1 from './assets/projects/project-3/image-1.jpeg';
+import Project3Image2 from './assets/projects/project-3/image-2.jpeg';
+import Project4Image1 from './assets/projects/project-4/image-1.jpeg';
+import Project4Image2 from './assets/projects/project-4/image-2.jpeg';
+import Project5Image1 from './assets/projects/project-5/image-1.jpeg';
+import Project5Image2 from './assets/projects/project-5/image-2.jpeg';
+import Project6Image1 from './assets/projects/project-6/image-1.jpeg';
+import Project6Image2 from './assets/projects/project-6/image-2.jpeg';
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,9 +65,7 @@ function App() {
             location: 'Kediri, Jawa Timur , Indonesia',
             type: 'Komersial',
             images: [
-              './src/assets/projects/project-1/image-1.jpeg',
-              './src/assets/projects/project-1/image-2.jpeg',
-              './src/assets/projects/project-1/image-3.jpeg'
+              Project1Image1, Project1Image2, Project1Image3
             ],
             videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=eoCLMzYWlg5i-hlE',
             featured: true,
@@ -65,8 +77,7 @@ function App() {
             location: 'Pare Kediri , Jawa Timur , Indonesia',
             type: 'Bangun Rumah',
             images: [
-              './src/assets/projects/project-2/image-1.jpeg',
-              './src/assets/projects/project-2/image-2.jpeg'
+              Project2Image1, Project2Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/eJclzksshqo?si=jEwBXzD31Su2Wc-n',
             featured: false,
@@ -78,8 +89,7 @@ function App() {
             location: 'Kota Kediri, Jawa Timur , Indonesia',
             type: 'Renovasi',
             images: [
-              './src/assets/projects/project-3/image-1.jpeg',
-              './src/assets/projects/project-3/image-2.jpeg'
+              Project3Image1, Project3Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
             featured: false,
@@ -91,10 +101,9 @@ function App() {
             location: 'Kota Kediri , Jawa timur , Indonesia',
             type: 'Interior',
             images: [
-              './src/assets/projects/project-4/image-1.jpeg',
-              './src/assets/projects/project-4/image-2.jpeg'
+              Project4Image1, Project4Image2
             ],
-            videoUrl: 'https://player.vimeo.com/video/1118085271?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', // besok
+            videoUrl: 'https://www.youtube.com/embed/ZlpIs6LXFv0?si=HCxFBsk67ObdtsTc', // besok
             featured: false,
             description: 'Desain interior apartment premium dengan material imported dan furniture custom design.',
             details: ['Luas 120m²', '2 Bedroom', 'Smart Home', 'Luxury Finish']
@@ -104,10 +113,9 @@ function App() {
             location: 'Kediri , Jawa Timur , Indonesia',
             type: 'Exterior',
             images: [
-              './src/assets/projects/project-5/image-1.jpeg',
-              './src/assets/projects/project-5/image-2.jpeg'
+              Project5Image1, Project5Image2
             ],
-            videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE', // besok
+            videoUrl: 'https://www.youtube.com/embed/lhDSxreVqPM?si=VCzFB0VaEezP3gCx', // besok
             featured: false,
             description: 'Renovasi fasad gedung komersial dengan material glass curtain wall dan aluminium composite panel.',
             details: ['Tinggi 15m', 'Material ACP', 'Curtain Wall', 'LED Lighting']
@@ -117,10 +125,9 @@ function App() {
             location: 'Kediri , Jawa Timur Indonesia',
             type: 'Komersial',
             images: [
-              './src/assets/projects/project-6/image-1.jpeg',
-              './src/assets/projects/project-6/image-2.jpeg'
+              Project6Image1, Project6Image2
             ],
-            videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE', // besok
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A', // besok
             featured: false,
             description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
             details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
@@ -230,80 +237,73 @@ portfolio: {
   subtitle: 'Outstanding Works That Build Legacy',
   projects: [
     {
-      title: 'Bali Luxury Resort', // besok
+      title: 'Hanggar Bandara Kediri', // besok
       location: 'Bali, Indonesia',
       type: 'Commercial',
       images: [
-        './src/assets/projects/project-1/image-1.jpeg',
-        './src/assets/projects/project-1/image-2.jpeg',
-        './src/assets/projects/project-1/image-3.jpeg'
+        Project1Image1, Project1Image2, Project1Image3
       ],
-      videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=eoCLMzYWlg5i-hlE', // besok
+      videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=eoCLMzYWlg5i-hlE',
       featured: true,
       description: 'A luxurious resort with 150 premium villas blending traditional Balinese architecture with modern technology. This $50 million project is a landmark in international tourism.',
       details: ['150 Premium Villas', '5 Years of Construction', 'Award-Winning Design', 'Sustainable Architecture']
     },
     {
-      title: 'Modern Minimalist House',
+      title: 'Rumah dr. Hermawan',
       location: 'South Jakarta',
       type: 'Residential',
       images: [
-        './src/assets/projects/project-2/image-1.jpeg',
-        './src/assets/projects/project-2/image-2.jpeg'
+        Project2Image1, Project2Image2
       ],
-      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',// besok
+      videoUrl: 'https://www.youtube.com/embed/eJclzksshqo?si=jEwBXzD31Su2Wc-n',
       featured: false,
       description: 'A modern residential house with minimalist design and open space concept, perfect for a family.',
       details: ['Area 350m²', '3 Bedrooms', 'Modern Design', 'Premium Materials']
     },
     {
-      title: 'Headquarters Office Renovation',
+      title: 'Rumah Tinggal Gus Iqbal Lirboyo',
       location: 'Sudirman, Jakarta',
       type: 'Renovation',
       images: [
-        './src/assets/projects/project-3/image-1.jpeg',
-        './src/assets/projects/project-3/image-2.jpeg'
+        Project3Image1, Project3Image2
       ],
-      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
       featured: false,
       description: 'Total transformation of a corporate headquarters with a modern, ergonomic workspace design.',
       details: ['Area 2000m²', '3 Floors', 'Smart Office', 'Green Building']
     },
     {
-      title: 'Premium Apartment Interior',
+      title: 'Rumah Tinggal Ning Millah Lirboyo',
       location: 'Kebayoran Baru',
       type: 'Interior',
       images: [
-        './src/assets/projects/project-4/image-1.jpeg',
-        './src/assets/projects/project-4/image-2.jpeg'
+        Project4Image1, Project4Image2
       ],
-      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      videoUrl: 'https://www.youtube.com/embed/ZlpIs6LXFv0?si=HCxFBsk67ObdtsTc',
       featured: false,
       description: 'Interior design of a premium apartment with imported materials and custom-designed furniture.',
       details: ['Area 120m²', '2 Bedrooms', 'Smart Home', 'Luxury Finish']
     },
     {
-      title: 'Commercial Building Facade',
+      title: 'Bu Lurah Mojoroto',
       location: 'Surabaya',
       type: 'Exterior',
       images: [
-        './src/assets/projects/project-5/image-1.jpeg',
-        './src/assets/projects/project-5/image-2.jpeg'
+        Project5Image1, Project5Image2
       ],
-      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      videoUrl: 'https://www.youtube.com/embed/lhDSxreVqPM?si=VCzFB0VaEezP3gCx',
       featured: false,
       description: 'Facade renovation of a commercial building using glass curtain walls and aluminum composite panels.',
       details: ['Height 15m', 'ACP Material', 'Curtain Wall', 'LED Lighting']
     },
     {
-      title: 'Manufacturing Factory',
+      title: 'PKP-RI',
       location: 'Cikarang, Bekasi',
       type: 'Commercial',
       images: [
-        './src/assets/projects/project-6/image-1.jpeg',
-        './src/assets/projects/project-6/image-2.jpeg'
+        Project6Image1, Project6Image2
       ],
-      videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+      videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
       featured: false,
       description: 'Construction of a manufacturing factory with international standards and advanced technology.',
       details: ['Area 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
