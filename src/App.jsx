@@ -49,7 +49,7 @@ function App() {
       },
       about: {
         title: 'Manifesto Kami',
-        subtitle: 'Excellence is not a goal — excellence is identity.',
+        subtitle: 'Keunggulan bukanlah tujuan — keunggulan adalah identitas',
         description: 'Selama lebih dari tiga dekade, kami telah menjadi mitra terpercaya untuk proyek-proyek prestisius di seluruh dunia. Dari pabrik skala global hingga resort mewah di Bali, setiap proyek adalah cerminan dari komitmen kami terhadap integritas, presisi, dan seni arsitektur.',
         values: [
           { title: 'Integritas', desc: 'Komitmen tanpa kompromi pada kualitas' },
@@ -62,7 +62,7 @@ function App() {
         subtitle: 'Karya Terbaik yang Membangun Warisan',
         projects: [
           {
-            title: 'Hanggar Bandara Kediri',
+            title: 'Gedung Hanggar Bandara Kediri',
             location: 'Kediri, Jawa Timur , Indonesia',
             type: 'Komersial',
             images: [
@@ -75,7 +75,7 @@ function App() {
           },
           {
             title: 'Rumah dr. Hermawan',
-            location: 'Pare Kediri , Jawa Timur , Indonesia',
+            location: 'Pare Kabupaten Kediri , Jawa Timur , Indonesia',
             type: 'Bangun Rumah',
             images: [
               Project2Image1, Project2Image2
@@ -90,7 +90,7 @@ function App() {
             location: 'Kota Kediri, Jawa Timur , Indonesia',
             type: 'Renovasi',
             images: [
-              Project3Image1, Project3Image2
+              Project3Image1, Project2Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
             featured: false,
@@ -205,7 +205,15 @@ function App() {
           email: 'info@signatureexcellence.com',
           address: 'Jl. Gajah Mada No.99, Kwadungan, Kec. Ngasem, Kabupaten Kediri, Jawa Timur 64182'
         }
-      }
+      },
+      projectTypes: {
+        residential: 'Bangun Rumah',
+        renovation: 'Renovasi',
+        interior: 'Interior',
+        exterior: 'Exterior',
+        commercial: 'Komersial',
+        other: 'Lainnya'
+      },
     },
     en: {
       nav: {
@@ -238,8 +246,8 @@ portfolio: {
   subtitle: 'Outstanding Works That Build Legacy',
   projects: [
     {
-      title: 'Hanggar Bandara Kediri', // besok
-      location: 'Bali, Indonesia',
+      title: 'Kediri Airport Hangar Building',
+      location: 'Kediri, East Java , Indonesia',
       type: 'Commercial',
       images: [
         Project1Image1, Project1Image2, Project1Image3
@@ -251,7 +259,7 @@ portfolio: {
     },
     {
       title: 'Rumah dr. Hermawan',
-      location: 'South Jakarta',
+      location: 'Pare, Kediri Regency, East Java, Indonesia',
       type: 'Residential',
       images: [
         Project2Image1, Project2Image2
@@ -263,7 +271,7 @@ portfolio: {
     },
     {
       title: 'Rumah Tinggal Gus Iqbal Lirboyo',
-      location: 'Sudirman, Jakarta',
+      location: 'Kediri City, East Java, Indonesia',
       type: 'Renovation',
       images: [
         Project3Image1, Project3Image2
@@ -275,7 +283,7 @@ portfolio: {
     },
     {
       title: 'Rumah Tinggal Ning Millah Lirboyo',
-      location: 'Kebayoran Baru',
+      location: 'Kediri City, East Java, Indonesia',
       type: 'Interior',
       images: [
         Project4Image1, Project4Image2
@@ -286,8 +294,8 @@ portfolio: {
       details: ['Area 120m²', '2 Bedrooms', 'Smart Home', 'Luxury Finish']
     },
     {
-      title: 'Bu Lurah Mojoroto',
-      location: 'Surabaya',
+      title: 'village Head Mojoroto',
+      location: 'Kediri City, East Java, Indonesia',
       type: 'Exterior',
       images: [
         Project5Image1, Project5Image2
@@ -299,7 +307,7 @@ portfolio: {
     },
     {
       title: 'PKP-RI',
-      location: 'Cikarang, Bekasi',
+      location: 'Kediri City, East Java, Indonesia',
       type: 'Commercial',
       images: [
         Project6Image1, Project6Image2
@@ -382,6 +390,14 @@ portfolio: {
           email: 'info@signatureexcellence.com',
           address: 'Gajah Mada Street Number 99, Kwadungan, Ngasem District, Kediri Regency, East Java (64182)'
         }
+      },
+      projectTypes: {
+        residential: 'Residential',
+        renovation: 'Renovation',
+        interior: 'Interior',
+        exterior: 'Exterior',
+        commercial: 'Commercial',
+        other: 'Other'
       }
     }
   };
@@ -393,22 +409,25 @@ portfolio: {
     const formData = new FormData(e.target);
     const name = formData.get('name');
     const location = formData.get('location');
-    const project = formData.get('project');
+    const projectType = formData.get('project');
     const message = formData.get('message');
     
-    // Format pesan untuk WhatsApp
-    const whatsappMessage = `Halo, saya ${name}. Saya ingin berkonsultasi mengenai proyek ${project} yang berlokasi ${location}. Pesan: ${message}`;
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/6281330229771?text=${encodedMessage}`;
+  // Dapatkan label project type berdasarkan bahasa
+  const projectTypeLabel = t.projectTypes[projectType] || projectType;
+  
+  // Format pesan untuk WhatsApp
+  const whatsappMessage = `Halo, saya ${name}. Saya ingin berkonsultasi mengenai proyek ${projectTypeLabel} yang berlokasi ${location}. Pesan: ${message}`;
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+  const whatsappUrl = `https://wa.me/6281330229771?text=${encodedMessage}`;
 
-    // Arahkan ke WhatsApp
-    window.open(whatsappUrl, '_blank');
-    
-    toast({
-      title: "Berhasil! Anda akan diarahkan ke WhatsApp.",
-      duration: 5000,
-    });
-  };
+  // Arahkan ke WhatsApp
+  window.open(whatsappUrl, '_blank');
+  
+  toast({
+    title: language === 'id' ? "Berhasil! Anda akan diarahkan ke WhatsApp." : "Success! You will be redirected to WhatsApp.",
+    duration: 5000,
+  });
+};
 
   const handleWhatsApp = () => {
     const whatsappUrl = `https://wa.me/6281330229771`;
@@ -890,141 +909,143 @@ portfolio: {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 px-4">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
+{/* Contact Section */}
+<section id="contact" className="py-16 px-4 sm:py-20">
+  <div className="max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-12 sm:mb-16"
+    >
+      <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gradient">
+        {t.contact.title}
+      </h2>
+      <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
+        {t.contact.subtitle}
+      </p>
+    </motion.div>
+
+    <div className="flex flex-col lg:flex-row gap-8 sm:gap-12">
+      {/* Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="glass-effect p-6 sm:p-8 rounded-2xl w-full"
+      >
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {t.contact.form.name}
+            </label>
+            <input
+              type="text"
+              name="name"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white text-sm sm:text-base"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {t.contact.form.location}
+            </label>
+            <input
+              type="text"
+              name="location"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white text-sm sm:text-base"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {t.contact.form.project}
+            </label>
+            <select
+              name="project"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white text-sm sm:text-base"
+              required
             >
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                {t.contact.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                {t.contact.subtitle}
-              </p>
-            </motion.div>
+              <option value="">{t.contact.form.project}</option>
+              <option value="residential">{t.projectTypes.residential}</option>
+              <option value="renovation">{t.projectTypes.renovation}</option>
+              <option value="interior">{t.projectTypes.interior}</option>
+              <option value="exterior">{t.projectTypes.exterior}</option>
+              <option value="commercial">{t.projectTypes.commercial}</option>
+              <option value="other">{t.projectTypes.other}</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {t.contact.form.message}
+            </label>
+            <textarea
+              rows={4}
+              name="message"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white text-sm sm:text-base"
+              required
+            ></textarea>
+          </div>
+          <Button
+            type="submit"
+            className="w-full gold-gradient text-slate-900 hover:opacity-90 py-3 text-base sm:text-lg font-semibold rounded-2xl hover-lift"
+          >
+            {t.contact.form.submit}
+          </Button>
+        </form>
+      </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="glass-effect p-8 rounded-2xl"
-              >
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.name}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.location}
-                    </label>
-                    <input
-                      type="text"
-                      name="location"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.project}
-                    </label>
-                    <select
-                      name="project"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
-                      required
-                    >
-                      <option value="Residential">Bangun Rumah</option>
-                      <option value="Commercial">Renovasi</option>
-                      <option value="Industrial">Interior</option>
-                      <option value="Hospitality">Exterior</option>
-                      <option value="Hospitality">Lainnya</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      {t.contact.form.message}
-                    </label>
-                    <textarea
-                      rows={4}
-                      name="message"
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-2xl focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white"
-                      required
-                    ></textarea>
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full gold-gradient text-slate-900 hover:opacity-90 py-3 text-lg font-semibold rounded-2xl hover-lift"
-                  >
-                    {t.contact.form.submit}
-                  </Button>
-                </form>
-              </motion.div>
-
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className=" grid glass-effect p-8 rounded-2xl content-between"
-              >
-                <div className="glass-effect p-6 rounded-2xl hover-lift">
-                  <div className="flex items-center space-x-4">
-                    <Phone className="w-8 h-8 text-yellow-400" />
-                    <div>
-                      <p className="font-semibold text-white">Phone</p>
-                      <p className="text-gray-300">{t.contact.info.phone}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="glass-effect p-6 rounded-2xl hover-lift">
-                  <div className="flex items-center space-x-4">
-                    <Mail className="w-8 h-8 text-yellow-400" />
-                    <div>
-                      <p className="font-semibold text-white">Email</p>
-                      <p className="text-gray-300">{t.contact.info.email}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="glass-effect p-6 rounded-2xl hover-lift">
-                  <div className="flex items-center space-x-4">
-                    <MapPin className="w-8 h-8 text-yellow-400" />
-                    <div>
-                      <p className="font-semibold text-white">Address</p>
-                      <p className="text-gray-300">{t.contact.info.address}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <Button
-                  onClick={handleWhatsApp}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-lg font-semibold rounded-2xl hover-lift"
-                >
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  WhatsApp Consultation
-                </Button>
-              </motion.div>
+      {/* Contact Info */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex flex-col gap-4 sm:gap-6 w-full"
+      >
+        <div className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 flex-shrink-0" />
+            <div>
+              <p className="font-semibold text-white text-sm sm:text-base">Phone</p>
+              <p className="text-gray-300 text-sm sm:text-base">{t.contact.info.phone}</p>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 flex-shrink-0" />
+            <div>
+              <p className="font-semibold text-white text-sm sm:text-base">Email</p>
+              <p className="text-gray-300 text-sm sm:text-base break-all">{t.contact.info.email}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift">
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 flex-shrink-0" />
+            <div>
+              <p className="font-semibold text-white text-sm sm:text-base">Address</p>
+              <p className="text-gray-300 text-sm sm:text-base">{t.contact.info.address}</p>
+            </div>
+          </div>
+        </div>
+
+        <Button
+          onClick={handleWhatsApp}
+          className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-base sm:text-lg font-semibold rounded-2xl hover-lift mt-2"
+        >
+          <MessageCircle className="mr-2 w-5 h-5" />
+          WhatsApp Consultation
+        </Button>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
         {/* Footer */}
         <footer className="bg-slate-900 py-12 px-4">
