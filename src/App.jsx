@@ -13,13 +13,15 @@ import Project2Image1 from './assets/projects/project-2/image-1.jpeg';
 import Project2Image2 from './assets/projects/project-2/image-2.jpeg';
 import Project3Image1 from './assets/projects/project-3/image-1.jpeg';
 import Project3Image2 from './assets/projects/project-3/image-2.jpeg';
+import Project3Image3 from './assets/projects/project-3/image-3.jpeg';
 import Project4Image1 from './assets/projects/project-4/image-1.jpeg';
 import Project4Image2 from './assets/projects/project-4/image-2.jpeg';
 import Project5Image1 from './assets/projects/project-5/image-1.jpeg';
 import Project5Image2 from './assets/projects/project-5/image-2.jpeg';
 import Project6Image1 from './assets/projects/project-6/image-1.jpeg';
 import Project6Image2 from './assets/projects/project-6/image-2.jpeg';
-
+import Project7Image1 from './assets/projects/project-7/image-1.jpeg';
+import Project7Image2 from './assets/projects/project-7/image-2.jpeg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,7 +92,7 @@ function App() {
             location: 'Kota Kediri, Jawa Timur , Indonesia',
             type: 'Renovasi',
             images: [
-              Project3Image1, Project2Image2
+              Project3Image1, Project3Image2, Project3Image3
             ],
             videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
             featured: false,
@@ -132,7 +134,19 @@ function App() {
             featured: false,
             description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
             details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
-          }
+          },
+          {
+            title: 'Proyek Jalan Blitar',
+            location: 'Blitar , Jawa Timur Indonesia',
+            type: 'Komersial',
+            images: [
+              Project7Image1, Project7Image2
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A', // besok
+            featured: false,
+            description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
+            details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+          },
         ]
       },
       pillars: {
@@ -141,7 +155,7 @@ function App() {
         items: [
           {
             title: 'Warisan Terbukti',
-            subtitle: '30+ Tahun Kepercayaan',
+            subtitle: '20+ Tahun Kepercayaan',
             description: 'Tiga dekade pengalaman membangun proyek-proyek landmark yang menjadi ikon.'
           },
           {
@@ -258,7 +272,7 @@ portfolio: {
       details: ['150 Premium Villas', '5 Years of Construction', 'Award-Winning Design', 'Sustainable Architecture']
     },
     {
-      title: 'Rumah dr. Hermawan',
+      title: 'Dr. Hermawan\'s house',
       location: 'Pare, Kediri Regency, East Java, Indonesia',
       type: 'Residential',
       images: [
@@ -270,11 +284,11 @@ portfolio: {
       details: ['Area 350m²', '3 Bedrooms', 'Modern Design', 'Premium Materials']
     },
     {
-      title: 'Rumah Tinggal Gus Iqbal Lirboyo',
+      title: 'Gus Iqbal Lirboyo\'s Residence',
       location: 'Kediri City, East Java, Indonesia',
       type: 'Renovation',
       images: [
-        Project3Image1, Project3Image2
+        Project3Image1, Project3Image2, Project3Image3
       ],
       videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
       featured: false,
@@ -282,7 +296,7 @@ portfolio: {
       details: ['Area 2000m²', '3 Floors', 'Smart Office', 'Green Building']
     },
     {
-      title: 'Rumah Tinggal Ning Millah Lirboyo',
+      title: 'Ning Millah Lirboyo\'s Residence',
       location: 'Kediri City, East Java, Indonesia',
       type: 'Interior',
       images: [
@@ -294,7 +308,7 @@ portfolio: {
       details: ['Area 120m²', '2 Bedrooms', 'Smart Home', 'Luxury Finish']
     },
     {
-      title: 'village Head Mojoroto',
+      title: 'Village Head Mojoroto',
       location: 'Kediri City, East Java, Indonesia',
       type: 'Exterior',
       images: [
@@ -311,6 +325,18 @@ portfolio: {
       type: 'Commercial',
       images: [
         Project6Image1, Project6Image2
+      ],
+      videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+      featured: false,
+      description: 'Construction of a manufacturing factory with international standards and advanced technology.',
+      details: ['Area 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+    },
+    {
+      title: 'Blitar Road Project',
+      location: 'Blitar City, East Java, Indonesia',
+      type: 'Commercial',
+      images: [
+        Project7Image1, Project7Image2
       ],
       videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
       featured: false,
@@ -474,9 +500,9 @@ portfolio: {
     <>
       <Helmet>
         <title>PT.Alfa Tata Griya - The Signature of Excellence</title>
-        <meta name="description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
+        <meta name="description" content="Perusahaan konstruksi & interior premium dengan pengalaman 20+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
         <meta property="og:title" content="PT.Alfa Tata Griya - The Signature of Excellence" />
-        <meta property="og:description" content="Perusahaan konstruksi & interior premium dengan pengalaman 30+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
+        <meta property="og:description" content="Perusahaan konstruksi & interior premium dengan pengalaman 20+ tahun. Membangun proyek ikonik berskala nasional & internasional dengan standar excellence." />
       </Helmet>
 
       <div className="min-h-screen">
