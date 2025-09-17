@@ -91,7 +91,7 @@ function App() {
             location: 'Kota Kediri, Jawa Timur , Indonesia',
             type: 'Renovasi',
             images: [
-              Project3Image1, Project3Image2, Project3Image3
+              Project3Image1, Project3Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
             featured: false,
@@ -290,7 +290,7 @@ portfolio: {
       location: 'Kediri City, East Java, Indonesia',
       type: 'Renovation',
       images: [
-        Project3Image1, Project3Image2, Project3Image3
+        Project3Image1, Project3Image2
       ],
       videoUrl: 'https://www.youtube.com/embed/ZrOT-ng35AA?si=pW95gXCNUoLBalHu',
       featured: false,
