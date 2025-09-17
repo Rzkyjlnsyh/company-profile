@@ -13,7 +13,6 @@ import Project2Image1 from './assets/projects/project-2/image-1.jpeg';
 import Project2Image2 from './assets/projects/project-2/image-2.jpeg';
 import Project3Image1 from './assets/projects/project-3/image-1.jpeg';
 import Project3Image2 from './assets/projects/project-3/image-2.jpeg';
-import Project3Image3 from './assets/projects/project-3/image-3.jpeg';
 import Project4Image1 from './assets/projects/project-4/image-1.jpeg';
 import Project4Image2 from './assets/projects/project-4/image-2.jpeg';
 import Project5Image1 from './assets/projects/project-5/image-1.jpeg';
