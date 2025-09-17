@@ -228,6 +228,9 @@ function App() {
         commercial: 'Komersial',
         other: 'Lainnya'
       },
+      footer: {
+        tagline: "Membangun Warisan, Satu Proyek pada Satu Waktu"
+      }
     },
     en: {
       nav: {
@@ -424,6 +427,9 @@ portfolio: {
         exterior: 'Exterior',
         commercial: 'Commercial',
         other: 'Other'
+      },
+      footer: {
+        tagline: "Building Legacy, One Project at a Time"
       }
     }
   };
@@ -1075,19 +1081,19 @@ portfolio: {
 
         {/* Footer */}
         <footer className="bg-slate-900 py-12 px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="font-playfair text-2xl font-bold text-gradient mb-4">
-            PT.ALFA TATA GRIYA
-            </div>
-            <p className="text-gray-400 mb-6">
-              Building Legacy, One Project at a Time
-            </p>
-            <div className="section-divider"></div>
-            <p className="text-gray-500 text-sm">
-              © 2025 PT.ALFA TATA GRIYA. All rights reserved.
-            </p>
-          </div>
-        </footer>
+  <div className="max-w-6xl mx-auto text-center">
+    <div className="font-playfair text-2xl font-bold text-gradient mb-4">
+      PT.ALFA TATA GRIYA
+    </div>
+    <p className="text-gray-400 mb-6">
+      {t.footer?.tagline || "Building Legacy, One Project at a Time"}
+    </p>
+    <div className="section-divider"></div>
+    <p className="text-gray-500 text-sm">
+      © 2025 PT.ALFA TATA GRIYA. All rights reserved.
+    </p>
+  </div>
+</footer>
 
         <Toaster />
       </div>
