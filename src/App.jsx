@@ -6,21 +6,21 @@ import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import { Toaster } from '@/components/ui/toaster';
 import logo from './assets/logo.webp'
-import Project1Image1 from './assets/projects/project-1/image-1.jpeg';
-import Project1Image2 from './assets/projects/project-1/image-2.jpeg';
-import Project1Image3 from './assets/projects/project-1/image-3.jpeg';
-import Project2Image1 from './assets/projects/project-2/image-1.jpeg';
-import Project2Image2 from './assets/projects/project-2/image-2.jpeg';
-import Project3Image1 from './assets/projects/project-3/image-1.jpeg';
-import Project3Image2 from './assets/projects/project-3/image-3.jpeg';
-import Project4Image1 from './assets/projects/project-4/image-1.jpeg';
-import Project4Image2 from './assets/projects/project-4/image-2.jpeg';
-import Project5Image1 from './assets/projects/project-5/image-1.jpeg';
-import Project5Image2 from './assets/projects/project-5/image-2.jpeg';
-import Project6Image1 from './assets/projects/project-6/image-1.jpeg';
-import Project6Image2 from './assets/projects/project-6/image-2.jpeg';
-import Project7Image1 from './assets/projects/project-7/image-1.jpeg';
-import Project7Image2 from './assets/projects/project-7/image-2.jpeg';
+import Project1Image1 from './assets/projects/project-1/image-1.webp';
+import Project1Image2 from './assets/projects/project-1/image-2.webp';
+import Project1Image3 from './assets/projects/project-1/image-3.webp';
+import Project2Image1 from './assets/projects/project-2/image-1.webp';
+import Project2Image2 from './assets/projects/project-2/image-2.webp';
+import Project3Image1 from './assets/projects/project-3/image-1.webp';
+import Project3Image2 from './assets/projects/project-3/image-3.webp';
+import Project4Image1 from './assets/projects/project-4/image-1.webp';
+import Project4Image2 from './assets/projects/project-4/image-2.webp';
+import Project5Image1 from './assets/projects/project-5/image-1.webp';
+import Project5Image2 from './assets/projects/project-5/image-2.webp';
+import Project6Image1 from './assets/projects/project-6/image-1.webp';
+import Project6Image2 from './assets/projects/project-6/image-2.webp';
+import Project7Image1 from './assets/projects/project-7/image-1.webp';
+import Project7Image2 from './assets/projects/project-7/image-2.webp';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -101,29 +101,29 @@ function App() {
           {
             title: 'Rumah Tinggal Ning Millah Lirboyo',
             location: 'Kota Kediri, Jawa Timur, Indonesia',
-            type: 'Interior',
+            type: 'Residensial',
             images: [
               Project4Image1, Project4Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/ZlpIs6LXFv0?si=HCxFBsk67ObdtsTc',
             featured: false,
-            description: 'Desain interior apartment premium dengan material imported dan furniture custom design.',
-            details: ['Luas 120m²', '2 Bedroom', 'Smart Home', 'Luxury Finish']
+            description: 'PT Alfa Tata Griya menghadirkan hunian dua lantai dengan arsitektur bergaya klasik modern yang memancarkan kesan mewah, anggun, dan berkelas. Dominasi warna putih pada fasad menciptakan tampilan yang bersih, elegan, sekaligus timeless, sementara detail profil dinding dan kolom-kolom tegas menambah sentuhan estetika yang megah. Pembangunan dilakukan dengan material premium, pengerjaan presisi, serta pengawasan ketat, memastikan rumah ini tidak hanya indah dipandang, tetapi juga kokoh dan nyaman untuk dihuni dalam jangka panjang.',
+            details: ['Arsitektur Klasik Modern', 'Material Premium', 'Pengerjaan Presisi', 'Konsep Hunian Timeless']
           },
           {
-            title: 'Bu Lurah Mojoroto',
+            title: 'Rumah Bu Lurah Mojoroto',
             location: 'Kediri, Jawa Timur, Indonesia',
-            type: 'Exterior',
+            type: 'Residensial',
             images: [
               Project5Image1, Project5Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/lhDSxreVqPM?si=VCzFB0VaEezP3gCx',
             featured: false,
-            description: 'Renovasi fasad gedung komersial dengan material glass curtain wall dan aluminium composite panel.',
-            details: ['Tinggi 15m', 'Material ACP', 'Curtain Wall', 'LED Lighting']
+            description: 'PT Alfa Tata Griya kembali membuktikan keunggulan dalam membangun hunian modern dengan struktur yang kokoh dan desain arsitektur elegan. Proyek ini sedang dalam tahap pembangunan struktur utama dengan material beton bertulang dan dinding bata ekspos, memastikan kekuatan, ketahanan, dan keamanan bangunan untuk jangka panjang. Setiap detail dikerjakan dengan standar profesional tinggi, pengawasan ketat, serta penerapan sistem keselamatan kerja yang disiplin, menciptakan pondasi yang solid untuk hunian yang nyaman dan prestisius.',
+            details: ['Struktur Kokoh', 'Material Beton Bertulang', 'Dinding Bata Ekspos', 'Standar Keselamatan Tinggi']
           },
           {
-            title: 'PKP-RI KEDIRI',
+            title: 'Gedung PKP-RI Kediri',
             location: 'Kediri, Jawa Timur, Indonesia',
             type: 'Komersial',
             images: [
@@ -131,20 +131,20 @@ function App() {
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
-            description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
-            details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+            description: 'PT Alfa Tata Griya turut berperan dalam menghadirkan fasilitas publik yang modern, fungsional, dan representatif melalui pembangunan gedung PKP-RI Kediri. Bangunan dua lantai ini menampilkan desain arsitektur minimalis kontemporer, dengan struktur kolom kokoh, area terbuka yang luas, serta akses sirkulasi vertikal yang efisien, menciptakan lingkungan yang nyaman, produktif, dan ramah pengunjung. Pengerjaan dilakukan secara presisi dan profesional, mulai dari penguatan struktur utama hingga penyelesaian detail finishing.',
+            details: ['Desain Minimalis Kontemporer', 'Struktur Kolom Kokoh', 'Area Terbuka Luas', 'Sirkulasi Vertikal Efisien']
           },
           {
-            title: 'Proyek Jalan Blitar',
+            title: 'Pembangunan Jalan Blitar',
             location: 'Blitar, Jawa Timur, Indonesia',
-            type: 'Komersial',
+            type: 'Lainnya',
             images: [
               Project7Image1, Project7Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
-            description: 'Pembangunan pabrik manufacturing dengan standar internasional dan teknologi terkini.',
-            details: ['Luas 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+            description: 'PT Alfa Tata Griya berkomitmen mendukung konektivitas dan kemajuan infrastruktur daerah melalui pembangunan jalan di wilayah Blitar, Jawa Timur. Proyek ini mencakup pengerjaan pengecoran jalan beton yang dilakukan dengan presisi tinggi dan standar kualitas terbaik, demi menciptakan akses transportasi yang lebih lancar, aman, dan tahan lama bagi masyarakat sekitar. Dengan tenaga ahli berpengalaman dan pengawasan ketat di setiap tahap, kami memastikan hasil konstruksi yang kokoh, rapi, dan siap menunjang pertumbuhan ekonomi lokal.',
+            details: ['Pengecoran Jalan Beton', 'Presisi Tinggi', 'Akses Transportasi Lancar', 'Dukung Pertumbuhan Ekonomi']
           },
         ]
       },
@@ -299,50 +299,50 @@ function App() {
           {
             title: 'Ning Millah Lirboyo\'s Residence',
             location: 'Kediri City, East Java, Indonesia',
-            type: 'Interior',
+            type: 'Residential',
             images: [
               Project4Image1, Project4Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/ZlpIs6LXFv0?si=HCxFBsk67ObdtsTc',
             featured: false,
-            description: 'Interior design of a premium apartment with imported materials and custom-designed furniture.',
-            details: ['Area 120m²', '2 Bedrooms', 'Smart Home', 'Luxury Finish']
+            description: 'PT Alfa Tata Griya presents a two-story residence with classic modern architecture that radiates luxury, elegance, and class. The dominant white color on the facade creates a clean, elegant, and timeless appearance, while detailed wall profiles and strong columns add a touch of majestic aesthetics. Construction was carried out with premium materials, precise workmanship, and strict supervision, ensuring this house is not only beautiful to look at but also sturdy and comfortable to live in for the long term.',
+            details: ['Classic Modern Architecture', 'Premium Materials', 'Precision Workmanship', 'Timeless Living Concept']
           },
           {
-            title: 'Village Head Mojoroto',
-            location: 'Kediri City, East Java, Indonesia',
-            type: 'Exterior',
+            title: 'Village Head Mojoroto\'s House',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'Residential',
             images: [
               Project5Image1, Project5Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/lhDSxreVqPM?si=VCzFB0VaEezP3gCx',
             featured: false,
-            description: 'Facade renovation of a commercial building using glass curtain walls and aluminum composite panels.',
-            details: ['Height 15m', 'ACP Material', 'Curtain Wall', 'LED Lighting']
+            description: 'PT Alfa Tata Griya once again demonstrates excellence in building modern homes with strong structures and elegant architectural designs. This project is in the main structure construction phase using reinforced concrete materials and exposed brick walls, ensuring the building\'s strength, durability, and safety for the long term. Every detail is executed with high professional standards, strict supervision, and disciplined work safety systems, creating a solid foundation for a comfortable and prestigious residence.',
+            details: ['Strong Structure', 'Reinforced Concrete Materials', 'Exposed Brick Walls', 'High Safety Standards']
           },
           {
-            title: 'PKP-RI',
-            location: 'Kediri City, East Java, Indonesia',
+            title: 'PKP-RI Kediri Building',
+            location: 'Kediri, East Java, Indonesia',
             type: 'Commercial',
             images: [
               Project6Image1, Project6Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
-            description: 'Construction of a manufacturing factory with international standards and advanced technology.',
-            details: ['Area 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
           },
           {
-            title: 'Blitar Road Project',
-            location: 'Blitar City, East Java, Indonesia',
-            type: 'Commercial',
+            title: 'Blitar Road Construction',
+            location: 'Blitar, East Java, Indonesia',
+            type: 'Infrastructure',
             images: [
               Project7Image1, Project7Image2
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
-            description: 'Construction of a manufacturing factory with international standards and advanced technology.',
-            details: ['Area 5000m²', '2 Shift Operation', 'Automation System', 'Quality Control']
+            description: 'PT Alfa Tata Griya is committed to supporting regional connectivity and infrastructure development through road construction in the Blitar area, East Java. This project includes concrete road casting work carried out with high precision and the best quality standards, to create smoother, safer, and more durable transportation access for the local community. With experienced expert personnel and strict supervision at every stage, we ensure sturdy, neat construction results ready to support local economic growth.',
+            details: ['Concrete Road Casting', 'High Precision', 'Smooth Transportation Access', 'Support Local Economic Growth']
           }
         ]
       },
@@ -444,7 +444,7 @@ function App() {
     const projectTypeLabel = t.projectTypes[projectType] || projectType;
     const whatsappMessage = `Halo, saya ${name}. Saya ingin berkonsultasi mengenai proyek ${projectTypeLabel} yang berlokasi ${location}. Pesan: ${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/6281330229771?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/6281233051832?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
@@ -454,7 +454,7 @@ function App() {
   };
 
   const handleWhatsApp = () => {
-    const whatsappUrl = `https://wa.me/6281330229771`;
+    const whatsappUrl = `https://wa.me/6281233051832`;
     window.open(whatsappUrl, '_blank');
   };
 
