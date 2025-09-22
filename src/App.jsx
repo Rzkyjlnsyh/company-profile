@@ -70,7 +70,7 @@ function App() {
       about: {
         title: 'Manifesto Kami',
         subtitle: 'Keunggulan bukanlah tujuan — keunggulan adalah identitas',
-        description: 'Selama lebih dari tiga dekade, kami telah menjadi mitra terpercaya untuk proyek-proyek prestisius di seluruh dunia. Dari pabrik skala global hingga resort mewah di Bali, setiap proyek adalah cerminan dari komitmen kami terhadap integritas, presisi, dan seni arsitektur.',
+        description: 'Selama lebih dari Dua dekade, kami telah menjadi mitra terpercaya untuk proyek-proyek prestisius di seluruh dunia. Dari pabrik skala global hingga resort mewah di Bali, setiap proyek adalah cerminan dari komitmen kami terhadap integritas, presisi, dan seni arsitektur.',
         values: [
           { title: 'Integritas', desc: 'Komitmen tanpa kompromi pada kualitas' },
           { title: 'Presisi', desc: 'Detail yang sempurna dalam setiap elemen' },
@@ -210,7 +210,7 @@ function App() {
           {
             title: 'Warisan Terbukti',
             subtitle: '20+ Tahun Kepercayaan',
-            description: 'Tiga dekade pengalaman membangun proyek-proyek landmark yang menjadi ikon.'
+            description: 'Dua dekade pengalaman membangun proyek-proyek landmark yang menjadi ikon.'
           },
           {
             title: 'Presisi & Seni',
