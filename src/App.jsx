@@ -19,8 +19,23 @@ import Project5Image1 from './assets/projects/project-5/image-1.webp';
 import Project5Image2 from './assets/projects/project-5/image-2.webp';
 import Project6Image1 from './assets/projects/project-6/image-1.webp';
 import Project6Image2 from './assets/projects/project-6/image-2.webp';
+import Project6Image3 from './assets/projects/project-6/image-3.webp';
+import Project6Image4 from './assets/projects/project-6/image-4.webp';
 import Project7Image1 from './assets/projects/project-7/image-1.webp';
 import Project7Image2 from './assets/projects/project-7/image-2.webp';
+import Project8Image1 from './assets/projects/project-8/image-1.webp';
+import Project8Image2 from './assets/projects/project-8/image-2.webp';
+import Project8Image3 from './assets/projects/project-8/image-3.webp';
+import Project9Image1 from './assets/projects/project-9/image-1.webp';
+import Project9Image2 from './assets/projects/project-9/image-2.webp';
+import Project9Image3 from './assets/projects/project-9/image-3.webp';
+import Project9Image4 from './assets/projects/project-9/image-4.webp';
+import Project10Image1 from './assets/projects/project-10/image-1.webp';
+import Project10Image2 from './assets/projects/project-10/image-2.webp';
+import Project10Image3 from './assets/projects/project-10/image-3.webp';
+import Project10Image4 from './assets/projects/project-10/image-4.webp';
+import Project10Image5 from './assets/projects/project-10/image-5.webp';
+import Project10Image6 from './assets/projects/project-10/image-6.webp';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,6 +46,10 @@ function App() {
   const [activeTab, setActiveTab] = useState('photos');
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const [visibleProjects, setVisibleProjects] = useState(6);
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [filteredProjects, setFilteredProjects] = useState([]);
+
 
   const content = {
     id: {
@@ -65,7 +84,7 @@ function App() {
           {
             title: 'Gedung Hanggar Bandara Kediri',
             location: 'Kediri, Jawa Timur, Indonesia',
-            type: 'Komersial',
+            type: 'commercial',
             images: [
               Project1Image1, Project1Image2, Project1Image3
             ],
@@ -77,7 +96,7 @@ function App() {
           {
             title: 'Rumah dr. Hermawan',
             location: 'Pare, Kabupaten Kediri, Jawa Timur, Indonesia',
-            type: 'Bangun Rumah',
+            type: 'renovation',
             images: [
               Project2Image1, Project2Image2
             ],
@@ -89,7 +108,7 @@ function App() {
           {
             title: 'Rumah Tinggal Gus Iqbal Lirboyo',
             location: 'Kota Kediri, Jawa Timur, Indonesia',
-            type: 'Renovasi',
+            type: 'residential',
             images: [
               Project3Image1, Project3Image2
             ],
@@ -101,7 +120,7 @@ function App() {
           {
             title: 'Rumah Tinggal Ning Millah Lirboyo',
             location: 'Kota Kediri, Jawa Timur, Indonesia',
-            type: 'Residensial',
+            type: 'residential',
             images: [
               Project4Image1, Project4Image2
             ],
@@ -113,7 +132,7 @@ function App() {
           {
             title: 'Rumah Bu Lurah Mojoroto',
             location: 'Kediri, Jawa Timur, Indonesia',
-            type: 'Residensial',
+            type: 'renovation',
             images: [
               Project5Image1, Project5Image2
             ],
@@ -125,9 +144,9 @@ function App() {
           {
             title: 'Gedung PKP-RI Kediri',
             location: 'Kediri, Jawa Timur, Indonesia',
-            type: 'Komersial',
+            type: 'commercial',
             images: [
-              Project6Image1, Project6Image2
+              Project6Image1, Project6Image2,Project6Image3, Project6Image4
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
@@ -137,7 +156,7 @@ function App() {
           {
             title: 'Pembangunan Jalan Blitar',
             location: 'Blitar, Jawa Timur, Indonesia',
-            type: 'Lainnya',
+            type: 'other',
             images: [
               Project7Image1, Project7Image2
             ],
@@ -146,6 +165,42 @@ function App() {
             description: 'PT Alfa Tata Griya berkomitmen mendukung konektivitas dan kemajuan infrastruktur daerah melalui pembangunan jalan di wilayah Blitar, Jawa Timur. Proyek ini mencakup pengerjaan pengecoran jalan beton yang dilakukan dengan presisi tinggi dan standar kualitas terbaik, demi menciptakan akses transportasi yang lebih lancar, aman, dan tahan lama bagi masyarakat sekitar. Dengan tenaga ahli berpengalaman dan pengawasan ketat di setiap tahap, kami memastikan hasil konstruksi yang kokoh, rapi, dan siap menunjang pertumbuhan ekonomi lokal.',
             details: ['Pengecoran Jalan Beton', 'Presisi Tinggi', 'Akses Transportasi Lancar', 'Dukung Pertumbuhan Ekonomi']
           },
+          {
+            title: 'Kantor Resor Sintel 7.6 Kediri - KAI',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'commercial',
+            images: [
+              Project8Image1, Project8Image2, Project8Image3
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
+          },
+          {
+            title: 'Proyek Interior',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'interior',
+            images: [
+              Project9Image3, Project9Image2, Project9Image1, Project9Image4
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
+          },
+          {
+            title: 'Rumah Minimalis',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'residential',
+            images: [
+              Project10Image1, Project10Image2, Project10Image3, Project10Image4, Project10Image5, Project10Image6
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
+          }
         ]
       },
       pillars: {
@@ -214,7 +269,7 @@ function App() {
           submit: 'Kirim Konsultasi'
         },
         info: {
-          phone: '+62 813 6664 6664',
+          phone: '+62 812 3305 1832',
           email: 'info@signatureexcellence.com',
           address: 'Jl. Gajah Mada No.99, Kwadungan, Kec. Ngasem, Kabupaten Kediri, Jawa Timur 64182'
         }
@@ -263,7 +318,7 @@ function App() {
           {
             title: 'Kediri Airport Hangar Building',
             location: 'Kediri, East Java, Indonesia',
-            type: 'Commercial',
+            type: 'commercial',
             images: [
               Project1Image1, Project1Image2, Project1Image3
             ],
@@ -275,7 +330,7 @@ function App() {
           {
             title: 'Dr. Hermawan\'s House',
             location: 'Pare, Kediri Regency, East Java, Indonesia',
-            type: 'Residential',
+            type: 'renovation',
             images: [
               Project2Image1, Project2Image2
             ],
@@ -287,7 +342,7 @@ function App() {
           {
             title: 'Gus Iqbal Lirboyo\'s Residence',
             location: 'Kediri City, East Java, Indonesia',
-            type: 'Renovation',
+            type: 'residential',
             images: [
               Project3Image1, Project3Image2
             ],
@@ -299,7 +354,7 @@ function App() {
           {
             title: 'Ning Millah Lirboyo\'s Residence',
             location: 'Kediri City, East Java, Indonesia',
-            type: 'Residential',
+            type: 'residential',
             images: [
               Project4Image1, Project4Image2
             ],
@@ -311,7 +366,7 @@ function App() {
           {
             title: 'Village Head Mojoroto\'s House',
             location: 'Kediri, East Java, Indonesia',
-            type: 'Residential',
+            type: 'renovation',
             images: [
               Project5Image1, Project5Image2
             ],
@@ -323,9 +378,9 @@ function App() {
           {
             title: 'PKP-RI Kediri Building',
             location: 'Kediri, East Java, Indonesia',
-            type: 'Commercial',
+            type: 'commercial',
             images: [
-              Project6Image1, Project6Image2
+              Project6Image1, Project6Image2, Project6Image3, Project6Image4
             ],
             videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
             featured: false,
@@ -335,7 +390,7 @@ function App() {
           {
             title: 'Blitar Road Construction',
             location: 'Blitar, East Java, Indonesia',
-            type: 'Infrastructure',
+            type: 'other',
             images: [
               Project7Image1, Project7Image2
             ],
@@ -343,6 +398,42 @@ function App() {
             featured: false,
             description: 'PT Alfa Tata Griya is committed to supporting regional connectivity and infrastructure development through road construction in the Blitar area, East Java. This project includes concrete road casting work carried out with high precision and the best quality standards, to create smoother, safer, and more durable transportation access for the local community. With experienced expert personnel and strict supervision at every stage, we ensure sturdy, neat construction results ready to support local economic growth.',
             details: ['Concrete Road Casting', 'High Precision', 'Smooth Transportation Access', 'Support Local Economic Growth']
+          },
+          {
+            title: 'Sintel Resort Office 7.6 Kediri - KAI',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'commercial',
+            images: [
+              Project8Image1, Project8Image2, Project8Image3
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
+          },
+          {
+            title: 'Interior Projects',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'interior',
+            images: [
+              Project9Image3, Project9Image2, Project9Image1, Project9Image4
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
+          },
+          {
+            title: 'Minimalist House',
+            location: 'Kediri, East Java, Indonesia',
+            type: 'residential',
+            images: [
+              Project10Image1, Project10Image2, Project10Image3, Project10Image4, Project10Image5, Project10Image6
+            ],
+            videoUrl: 'https://www.youtube.com/embed/hgCWkoUZjGA?si=XpBjpj90xMkN9B-A',
+            featured: false,
+            description: 'PT Alfa Tata Griya plays a role in providing modern, functional, and representative public facilities through the construction of the PKP-RI Kediri building. This two-story building features a contemporary minimalist architectural design, with strong column structures, spacious open areas, and efficient vertical circulation access, creating a comfortable, productive, and visitor-friendly environment. Work is carried out with precision and professionalism, from main structure reinforcement to finishing detail completion.',
+            details: ['Contemporary Minimalist Design', 'Strong Column Structures', 'Spacious Open Areas', 'Efficient Vertical Circulation']
           }
         ]
       },
@@ -412,7 +503,7 @@ function App() {
           submit: 'Send Consultation'
         },
         info: {
-          phone: '+62 21 1234 5678',
+          phone: '+62 812 3305 1832',
           email: 'info@signatureexcellence.com',
           address: 'Gajah Mada Street Number 99, Kwadungan, Ngasem District, Kediri Regency, East Java (64182)'
         }
@@ -495,6 +586,41 @@ function App() {
     setIsMenuOpen(false);
   };
 
+// Dalam useEffect untuk filter, ganti dengan:
+useEffect(() => {
+  if (activeFilter === 'all') {
+    setFilteredProjects(t.portfolio.projects);
+  } else {
+    const filtered = t.portfolio.projects.filter(
+      project => project.type.toLowerCase() === activeFilter.toLowerCase()
+    );
+    setFilteredProjects(filtered);
+  }
+  // Hapus setVisibleProjects(6) dari sini untuk menghindari flicker
+}, [activeFilter, t.portfolio.projects, language]);
+
+// Fungsi loadMoreProjects yang diperbaiki:
+const loadMoreProjects = () => {
+  setVisibleProjects(prev => prev + 6);
+  // Scroll ke bawah sedikit untuk menunjukkan proyek baru yang dimuat
+  setTimeout(() => {
+    window.scrollBy({ top: 300, behavior: 'smooth' });
+  }, 100);
+};
+
+// Fungsi handleFilterChange yang diperbaiki:
+const handleFilterChange = (filter) => {
+  setActiveFilter(filter);
+  setVisibleProjects(6);
+  
+  // Scroll ke section portfolio setelah filter berubah
+  setTimeout(() => {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+};
   return (
     <>
       <Helmet>
@@ -598,7 +724,7 @@ function App() {
           <motion.div style={{ y }} className="absolute inset-0">
             <img  
               className="w-full h-full object-cover" 
-              alt="Luxury resort construction project with modern architecture"
+              alt="PT. ALFA TATA GRIYA"
               src="https://images.unsplash.com/photo-1694505455898-48d4676430a3" />
             <div className="absolute inset-0 hero-overlay"></div>
           </motion.div>
@@ -704,132 +830,239 @@ function App() {
         </section>
 
         <section id="portfolio" className="py-20 px-4 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                {t.portfolio.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                {t.portfolio.subtitle}
-              </p>
-            </motion.div>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gradient">
+        {t.portfolio.title}
+      </h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        {t.portfolio.subtitle}
+      </p>
+    </motion.div>
 
-            {t.portfolio.projects
-              .filter(project => project.featured)
-              .map((project, index) => (
-                <motion.div
-                  key={`featured-${index}`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group mb-12"
-                  onClick={() => openProjectModal(project)}
-                >
-                  <div className="grid lg:grid-cols-2 gap-0">
-                    <div className="relative h-64 lg:h-96 overflow-hidden">
-                      <img
-                        src={project.images[0]}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="flex space-x-4">
-                          <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
-                            <Image className="w-6 h-6 text-white" />
-                            <span className="text-white text-sm ml-2">{project.images.length}</span>
-                          </div>
-                          {project.videoUrl && (
-                            <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
-                              <Video className="w-6 h-6 text-white" />
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="text-xs text-yellow-400 bg-yellow-400/20 px-3 py-1 rounded-full">
-                          Featured Project
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-8 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                      <p className="text-sm text-gray-400 mb-2">{project.location}</p>
-                      <span className="text-xs text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded-full mb-4 self-start">
-                        {project.type}
-                      </span>
-                      <p className="text-gray-300 mb-4">{project.description}</p>
-                      <div className="grid grid-cols-2 gap-2 mb-4">
-                        {project.details.slice(0, 4).map((detail, i) => (
-                          <div key={i} className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
-                            <span className="text-xs text-gray-400">{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <button className="text-yellow-400 hover:text-yellow-300 text-sm font-medium flex items-center self-start">
-                        View Project Details
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </button>
-                    </div>
+    {/* Filter Buttons */}
+    <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <button
+        onClick={() => handleFilterChange('all')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'all'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Semua Proyek' : 'All Projects'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('residential')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'residential'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Residensial' : 'Residential'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('commercial')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'commercial'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Komersial' : 'Commercial'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('renovation')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'renovation'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Renovasi' : 'Renovation'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('interior')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'interior'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Interior' : 'Interior'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('exterior')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'exterior'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Exterior' : 'Exterior'}
+      </button>
+      <button
+        onClick={() => handleFilterChange('other')}
+        className={`px-6 py-2 rounded-full transition-all ${
+          activeFilter === 'other'
+            ? 'bg-yellow-400 text-slate-900 font-semibold'
+            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+        }`}
+      >
+        {language === 'id' ? 'Lainnya' : 'Other'}
+      </button>
+    </div>
+
+    {/* Featured Projects */}
+    {filteredProjects
+      .filter(project => project.featured)
+      .map((project, index) => (
+        <motion.div
+          key={`featured-${index}`}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group mb-12"
+          onClick={() => openProjectModal(project)}
+        >
+          <div className="grid lg:grid-cols-2 gap-0">
+            <div className="relative h-64 lg:h-96 overflow-hidden">
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="flex space-x-4">
+                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
+                    <Image className="w-6 h-6 text-white" />
+                    <span className="text-white text-sm ml-2">{project.images.length}</span>
                   </div>
-                </motion.div>
-              ))}
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {t.portfolio.projects
-                .filter(project => !project.featured)
-                .map((project, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group"
-                    onClick={() => openProjectModal(project)}
-                  >
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={project.images[0]}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="flex space-x-4">
-                          <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
-                            <Image className="w-5 h-5 text-white" />
-                            <span className="text-white text-sm ml-1">{project.images.length}</span>
-                          </div>
-                          {project.videoUrl && (
-                            <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
-                              <Video className="w-5 h-5 text-white" />
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                  {project.videoUrl && (
+                    <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-3">
+                      <Video className="w-6 h-6 text-white" />
                     </div>
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-lg font-bold text-white">{project.title}</h3>
-                        <span className="text-xs text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
-                          {project.type}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-400 mb-1">{project.location}</p>
-                      <p className="text-sm text-gray-300 line-clamp-2">{project.description}</p>
-                    </div>
-                  </motion.div>
+                  )}
+                </div>
+              </div>
+              <div className="absolute top-4 left-4">
+                <span className="text-xs text-yellow-400 bg-yellow-400/20 px-3 py-1 rounded-full">
+                  {language === 'id' ? 'Proyek Unggulan' : 'Featured Project'}
+                </span>
+              </div>
+            </div>
+            <div className="p-8 flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
+              <p className="text-sm text-gray-400 mb-2">{project.location}</p>
+              <span className="text-xs text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded-full mb-4 self-start">
+                {project.type}
+              </span>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {project.details.slice(0, 4).map((detail, i) => (
+                  <div key={i} className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
+                    <span className="text-xs text-gray-400">{detail}</span>
+                  </div>
                 ))}
+              </div>
+              <button className="text-yellow-400 hover:text-yellow-300 text-sm font-medium flex items-center self-start">
+                {language === 'id' ? 'Lihat Detail Proyek' : 'View Project Details'}
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
             </div>
           </div>
-        </section>
+        </motion.div>
+      ))}
+
+    {/* Regular Projects dengan pagination */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {filteredProjects
+        .filter(project => !project.featured)
+        .slice(0, visibleProjects)
+        .map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="glass-effect rounded-2xl overflow-hidden hover-lift cursor-pointer group"
+            onClick={() => openProjectModal(project)}
+          >
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="flex space-x-4">
+                  <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Image className="w-5 h-5 text-white" />
+                    <span className="text-white text-sm ml-1">{project.images.length}</span>
+                  </div>
+                  {project.videoUrl && (
+                    <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-2">
+                      <Video className="w-5 h-5 text-white" />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                <span className="text-xs text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-full">
+                  {project.type}
+                </span>
+              </div>
+              <p className="text-sm text-gray-400 mb-1">{project.location}</p>
+              <p className="text-sm text-gray-300 line-clamp-2">{project.description}</p>
+            </div>
+          </motion.div>
+        ))}
+    </div>
+
+    {/* Load More Button */}
+    {filteredProjects.filter(project => !project.featured).length > visibleProjects && (
+      <div className="text-center">
+        <Button
+          onClick={loadMoreProjects}
+          className="gold-gradient text-slate-900 hover:opacity-90 px-8 py-3 text-lg font-semibold rounded-full"
+        >
+          {language === 'id' ? 'Muat Lebih Banyak' : 'Load More Projects'}
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </Button>
+      </div>
+    )}
+
+    {/* Empty State */}
+    {filteredProjects.length === 0 && (
+      <div className="text-center py-12">
+        <div className="glass-effect p-8 rounded-2xl">
+          <Image className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-300 mb-2">
+            {language === 'id' ? 'Tidak ada proyek yang ditemukan' : 'No projects found'}
+          </h3>
+          <p className="text-gray-400">
+            {language === 'id' 
+              ? 'Coba gunakan filter yang berbeda atau lihat semua proyek.' 
+              : 'Try using a different filter or view all projects.'}
+          </p>
+        </div>
+      </div>
+    )}
+  </div>
+</section>
 
         <section id="pillars" className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
